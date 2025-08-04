@@ -84,7 +84,7 @@ export const CoursePage = () => {
       title: "Murojaat uchun:",
       items: [
          "📞Tel: +998 (97) 400-92-79",
-         "📱Yuldoshev Asliddin | Logistica"
+         "📱 Telegam: Yuldoshev Asliddin | Logistica"
       ]
     }
   ];
