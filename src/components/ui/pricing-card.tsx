@@ -26,6 +26,7 @@ export const PricingCard = ({
   buttonText,
 }: PricingCardProps) => {
   const isBasic = type === "basic";
+  const isPro = type === "pro";
   const [isExpanded, setIsExpanded] = useState(false);
 
   // Split modules into visible (first 2) and hidden (rest)
@@ -50,7 +51,7 @@ export const PricingCard = ({
         ? "border-none bg-white shadow-lg" 
         : "border-none shadow-lg"
     }`}>
-      {!isBasic && discount && (
+      {isPro && discount && (
         <div className="absolute top-4 right-4 bg-white text-black px-3 py-1 rounded-full text-sm font-medium z-10">
           {discount}
         </div>
@@ -65,18 +66,16 @@ export const PricingCard = ({
       <div className={`mb-6 p-6 rounded-t-xl ${
         isBasic ? "bg-gradient-to-br from-blue-600 to-orange-500 text-white" : "bg-gradient-to-br from-blue-600 to-orange-500 text-white"
       }`}>
-        <h3 className={`text-2xl mb-4 ${isBasic ? "text-white" : "text-white"}`}>
-          {isBasic ? "Baza" : "PRO"}
+        <h3 className={`text-2xl mb-4 text-white ${isPro ? 'font-bold' : ''}`}>
+          {isBasic ? "Baza" : "Nima uchun xalqaro logistika?"}
         </h3>
         
         <div className="flex items-baseline gap-2 mb-2">
-          <span className={`text-4xl font-bold ${isBasic ? "text-white" : "text-white"}`}>{price}</span>
-          <span className={`text-2xl font-bold transform -translate-y-4 ${isBasic ? "text-white" : "text-white"}`}>{currency}</span>
+          <span className="text-4xl font-bold text-white">{price}</span>
+          <span className="text-2xl font-bold transform -translate-y-4 text-white">{currency}</span>
         </div>
         
-        <div className={`text-lg line-through ${
-          isBasic ? "text-white/70" : "text-white/70"
-        }`}>
+        <div className="text-lg line-through text-white/70">
           {originalPrice} {currency}
         </div>
       </div>
@@ -90,17 +89,23 @@ export const PricingCard = ({
               <h4 className="font-bold mb-3 text-lg">
                 <span className="text-black">{number}</span>
                 <span className="text-black"> </span>
-                <span className={`${isBasic ? "text-orange-600" : "text-orange-600"}`}>
+                <span className="text-orange-600">
                   {name}
                 </span>
               </h4>
               <ul className="space-y-2">
                 {module.items.map((item, itemIndex) => (
-                  <li key={itemIndex} className={`text-sm flex items-start gap-2 ${
-                    isBasic ? "text-gray-700" : "text-gray-700"
-                  }`}>
-                    <span className={`mt-1 flex-shrink-0 ${isBasic ? "text-gray-700" : "text-gray-700"}`}>•</span>
-                    <span className="leading-relaxed">{item}</span>
+                  <li key={itemIndex} className="text-sm flex items-start gap-2 text-gray-700">
+                    <span className="mt-1 flex-shrink-0 text-gray-700">•</span>
+                    <span className={`leading-relaxed ${item.includes('+998') ? 'text-yellow-600 font-semibold cursor-pointer hover:text-yellow-700' : ''}`}>
+                      {item.includes('+998') ? (
+                        <a href={`tel:${item.replace('📞Tel: ', '')}`} className="hover:underline">
+                          {item}
+                        </a>
+                      ) : (
+                        item
+                      )}
+                    </span>
                   </li>
                 ))}
               </ul>
@@ -120,17 +125,23 @@ export const PricingCard = ({
                   <h4 className="font-bold mb-3 text-lg">
                     <span className="text-black">{number}</span>
                     <span className="text-black"> </span>
-                    <span className={`${isBasic ? "text-orange-600" : "text-orange-600"}`}>
+                    <span className="text-orange-600">
                       {name}
                     </span>
                   </h4>
                   <ul className="space-y-2">
                     {module.items.map((item, itemIndex) => (
-                      <li key={itemIndex} className={`text-sm flex items-start gap-2 ${
-                        isBasic ? "text-gray-700" : "text-gray-700"
-                      }`}>
-                        <span className={`mt-1 flex-shrink-0 ${isBasic ? "text-gray-700" : "text-gray-700"}`}>•</span>
-                        <span className="leading-relaxed">{item}</span>
+                      <li key={itemIndex} className="text-sm flex items-start gap-2 text-gray-700">
+                        <span className="mt-1 flex-shrink-0 text-gray-700">•</span>
+                        <span className={`leading-relaxed ${item.includes('+998') ? 'text-yellow-600 font-semibold cursor-pointer hover:text-yellow-700' : ''}`}>
+                          {item.includes('+998') ? (
+                            <a href={`tel:${item.replace('📞Tel: ', '')}`} className="hover:underline">
+                              {item}
+                            </a>
+                          ) : (
+                            item
+                          )}
+                        </span>
                       </li>
                     ))}
                   </ul>
@@ -144,11 +155,7 @@ export const PricingCard = ({
       <div className="px-6 mb-6">
         {!isExpanded ? (
           <Button 
-            className={`w-full py-3 rounded-lg font-medium active:bg-orange-500 focus:bg-orange-500 ${
-              isBasic 
-                ? "bg-orange-500 text-white hover:bg-orange-600 border-none"
-                : "bg-orange-500 text-white hover:bg-orange-600 border-none"
-            }`}
+            className="w-full py-3 rounded-lg font-medium active:bg-orange-500 focus:bg-orange-500 bg-orange-500 text-white hover:bg-orange-600 border-none"
             onClick={() => setIsExpanded(true)}
           >
             {buttonText}
