@@ -16,7 +16,6 @@ export const CoursePage = () => {
       title: "2-Modul: Transport vositalari va turlari",
       items: [
         "Dengiz, havo, avtomobil va temir yo'l transporti",
-        "Transport xizmati tanlash bo'yicha asosiy qoidalar",
         "Logistika turlari"
       ]
     },
@@ -37,6 +36,7 @@ export const CoursePage = () => {
       title: "Amaliyot darsi:",
       items: [
         "Real yuklar bilan mustaqil ishlash",
+        "5+ sayt va guruh orrqali yuklar bilan ishlash",
         "Yuklarni tahlil qilish",
         "Sayt va platformalardan foydalanish ko'nikmasi",
         "Barcha ko'nikmalarni mustahkamlash",
@@ -83,7 +83,8 @@ export const CoursePage = () => {
     {
       title: "Murojaat uchun:",
       items: [
-         "📞Tel: +998 (97) 400-92-79"
+         "📞Tel: +998 (97) 400-92-79",
+         "📱Yuldoshev Asliddin | Logistica"
       ]
     }
   ];
@@ -100,7 +101,7 @@ export const CoursePage = () => {
             originalPrice="700 000"
             currency="UZS"
             modules={basicModules}
-            buttonText="Ko'proq ma'lumot ↓"
+            buttonText="Ko'proq ma'lumot"
           />
           
           <PricingCard
@@ -110,7 +111,7 @@ export const CoursePage = () => {
             currency=""
             discount=""
             modules={proModules}
-            buttonText="Ko'proq ma'lumot ↓"
+            buttonText="Ko'proq ma'lumot"
           />
         </div>
       </div>

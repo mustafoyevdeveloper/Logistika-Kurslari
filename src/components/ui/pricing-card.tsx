@@ -81,7 +81,7 @@ export const PricingCard = ({
       </div>
 
       <div className="space-y-6 mb-6 px-6">
-        {/* Always visible modules (1 and 2) */}
+                {/* Always visible modules (1 and 2) */}
         {visibleModules.map((module, index) => {
           const { number, name } = splitModuleTitle(module.title);
           return (
@@ -96,10 +96,14 @@ export const PricingCard = ({
               <ul className="space-y-2">
                 {module.items.map((item, itemIndex) => (
                   <li key={itemIndex} className="text-sm flex items-start gap-2 text-gray-700">
-                    <span className="mt-1 flex-shrink-0 text-gray-700">•</span>
-                    <span className={`leading-relaxed ${item.includes('+998') ? 'text-yellow-600 font-semibold cursor-pointer hover:text-yellow-700' : ''}`}>
+                    <span className={`mt-1 flex-shrink-0 text-gray-700 ${item.includes('+998') || item.includes('Yuldoshev Asliddin') ? 'hidden' : ''}`}>•</span>
+                    <span className={`leading-relaxed ${item.includes('+998') ? 'text-yellow-600 font-semibold cursor-pointer hover:text-yellow-700' : ''} ${item.includes('Yuldoshev Asliddin') ? 'text-yellow-600 font-semibold cursor-pointer hover:text-yellow-700' : ''}`}>
                       {item.includes('+998') ? (
                         <a href={`tel:${item.replace('📞Tel: ', '')}`} className="hover:underline">
+                          {item}
+                        </a>
+                      ) : item.includes('Yuldoshev Asliddin') ? (
+                        <a href="https://t.me/Asliddin_logistica_uz" target="_blank" rel="noopener noreferrer" className="hover:underline">
                           {item}
                         </a>
                       ) : (
@@ -132,10 +136,14 @@ export const PricingCard = ({
                   <ul className="space-y-2">
                     {module.items.map((item, itemIndex) => (
                       <li key={itemIndex} className="text-sm flex items-start gap-2 text-gray-700">
-                        <span className="mt-1 flex-shrink-0 text-gray-700">•</span>
-                        <span className={`leading-relaxed ${item.includes('+998') ? 'text-yellow-600 font-semibold cursor-pointer hover:text-yellow-700' : ''}`}>
+                        <span className={`mt-1 flex-shrink-0 text-gray-700 ${item.includes('+998') || item.includes('Yuldoshev Asliddin') ? 'hidden' : ''}`}>•</span>
+                        <span className={`leading-relaxed ${item.includes('+998') ? 'text-yellow-600 font-semibold cursor-pointer hover:text-yellow-700' : ''} ${item.includes('Yuldoshev Asliddin') ? 'text-yellow-600 font-semibold cursor-pointer hover:text-yellow-700' : ''}`}>
                           {item.includes('+998') ? (
                             <a href={`tel:${item.replace('📞Tel: ', '')}`} className="hover:underline">
+                              {item}
+                            </a>
+                          ) : item.includes('Yuldoshev Asliddin') ? (
+                            <a href="https://t.me/Asliddin_logistica_uz" target="_blank" rel="noopener noreferrer" className="hover:underline">
                               {item}
                             </a>
                           ) : (
@@ -167,7 +175,7 @@ export const PricingCard = ({
             className="w-full py-3 rounded-lg font-medium text-gray-600 bg-gray-100 hover:bg-gray-200 border-gray-300 active:bg-gray-100 focus:bg-gray-100"
             onClick={() => setIsExpanded(false)}
           >
-            Yopish ↑
+            Yopish
             <ChevronUp className="w-4 h-4 ml-2" />
           </Button>
         )}
