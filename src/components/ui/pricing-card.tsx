@@ -63,19 +63,19 @@ export const PricingCard = ({
       )}
 
       <div className={`mb-6 p-6 rounded-t-xl ${
-        isBasic ? "bg-white" : "bg-gradient-to-br from-blue-600 to-orange-500 text-white"
+        isBasic ? "bg-gradient-to-br from-blue-600 to-orange-500 text-white" : "bg-gradient-to-br from-blue-600 to-orange-500 text-white"
       }`}>
-        <h3 className={`text-2xl mb-4 ${isBasic ? "text-black" : "text-white"}`}>
+        <h3 className={`text-2xl mb-4 ${isBasic ? "text-white" : "text-white"}`}>
           {isBasic ? "Baza" : "PRO"}
         </h3>
         
         <div className="flex items-baseline gap-2 mb-2">
-          <span className={`text-4xl font-bold ${isBasic ? "text-black" : "text-white"}`}>{price}</span>
-          <span className={`text-2xl font-bold transform -translate-y-4 ${isBasic ? "text-black" : "text-white"}`}>{currency}</span>
+          <span className={`text-4xl font-bold ${isBasic ? "text-white" : "text-white"}`}>{price}</span>
+          <span className={`text-2xl font-bold transform -translate-y-4 ${isBasic ? "text-white" : "text-white"}`}>{currency}</span>
         </div>
         
         <div className={`text-lg line-through ${
-          isBasic ? "text-gray-500" : "text-white/70"
+          isBasic ? "text-white/70" : "text-white/70"
         }`}>
           {originalPrice} {currency}
         </div>
