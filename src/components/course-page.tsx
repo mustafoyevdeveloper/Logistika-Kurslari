@@ -36,7 +36,7 @@ export const CoursePage = () => {
       title: "Amaliyot darsi:",
       items: [
         "Real yuklar bilan mustaqil ishlash",
-        "5+ sayt va guruh orrqali yuklar bilan ishlash",
+        "5+ sayt va guruh orqali yuklar bilan ishlash",
         "Yuklarni tahlil qilish",
         "Sayt va platformalardan foydalanish ko'nikmasi",
         "Barcha ko'nikmalarni mustahkamlash",
