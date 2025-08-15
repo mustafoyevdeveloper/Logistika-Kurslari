@@ -98,8 +98,8 @@ export const CoursePage = () => {
           <PricingCard
             type="basic"
             price="570 000"
-            originalPrice="700 000"
-            currency="UZS"
+            originalPrice=""
+            currency=""
             modules={basicModules}
             buttonText="Ko'proq ma'lumot"
           />
